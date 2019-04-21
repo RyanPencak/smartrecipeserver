@@ -2,13 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-const Recipes = require('./models/recipeModel');
 
 // Set Database URL
-const dburl = "mongodb://rpencak:nbBAKu33fYHnTApw@smartrecipes-shard-00-00-nigdu.mongodb.net:27017,smartrecipes-shard-00-01-nigdu.mongodb.net:27017,smartrecipes-shard-00-02-nigdu.mongodb.net:27017/test?ssl=true&replicaSet=SmartRecipes-shard-0&authSource=admin&retryWrites=true";
+const dburl = "mongodb://rpencak:nbBAKu33fYHnTApw@smartrecipes-shard-00-00-nigdu.mongodb.net:27017,smartrecipes-shard-00-01-nigdu.mongodb.net:27017,smartrecipes-shard-00-02-nigdu.mongodb.net:27017/test?ssl=true&replicaSet=smartrecipes-shard-0&authSource=admin&retryWrites=true";
 
 // Connect to MongoDB with Mongoose
-mongoose.connect(dburl, function (err, db) {
+mongoose.connect(dburl, { useNewUrlParser: true }, function (err, db) {
   if (err) {
     console.log('Unable to connect to mongoDB', err);
   }
@@ -28,7 +27,7 @@ app.get('/', (req, res) =>
 )
 
 // Set Routes
-app.use('/api/recipe', require('./routes/recipeRoutes'));
+app.use('/api', require('./routes/recipeRoutes'));
 
 const server = app.listen(3000, () => {
   const { address, port } = server.address();

@@ -5,11 +5,19 @@ var recipeSchema = new Schema({
   title: {
     type: String,
     unique: true,
+    required: true
   },
+  author: String,
   time: String,
-  pic: String,
-  ingredients: Array,
-  steps: Array
+  yield: String,
+  photocreds: String,
+  titleImg: String,
+  ingredients: [[String]],
+  steps: [[{
+    instruction: String,
+    img: String,
+    time: String
+  }]],
 });
 
 module.exports = mongoose.model('recipe', recipeSchema);
