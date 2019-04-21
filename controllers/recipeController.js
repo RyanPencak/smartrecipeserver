@@ -15,7 +15,6 @@ exports.list_all_recipes = function(req, res) {
 
 // POST Function: post recipe to create new recipe
 exports.create_recipe = function(req, res) {
-  console.log(req.body)
   let recipe = new Recipe(req.body);
   recipe.save()
     .then(item => {

@@ -29,7 +29,4 @@ app.get('/', (req, res) =>
 // Set Routes
 app.use('/api', require('./routes/recipeRoutes'));
 
-const server = app.listen(3000, () => {
-  const { address, port } = server.address();
-  console.log(`Listening at http://${address}:${port}`);
-});
+app.listen(process.env.PORT || 3000, () => console.log("Listening to port 3000"));

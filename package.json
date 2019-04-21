@@ -2,19 +2,18 @@
   "name": "smartrecipeserver",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/babel-cli/bin/babel.js ./ --source-maps --out-dir dist",
-    "start": "node_modules/nodemon/bin/nodemon.js -- node_modules/babel-cli/bin/babel-node.js server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "moment": "^2.24.0",
