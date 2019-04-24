@@ -16,7 +16,8 @@ var recipeSchema = new Schema({
   steps: [[{
     instruction: String,
     img: String,
-    time: String
+    time: String,
+    ingredients: [[String]]
   }]],
 });
 
